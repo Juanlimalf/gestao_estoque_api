@@ -18,3 +18,7 @@ func CreateProductUseCase(r repository.ProductRepository) ProductUseCase {
 func (uc *ProductUseCase) GetAllProducts() []model.Product {
 	return uc.repository.FetchAllProducts()
 }
+
+func (uc *ProductUseCase) CreateProduct(product model.Product) error {
+	return uc.repository.InsertProduct(product)
+}

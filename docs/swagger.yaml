@@ -1,0 +1,50 @@
+definitions:
+  model.Product:
+    properties:
+      description:
+        type: string
+      id_product:
+        type: integer
+      price:
+        type: number
+    type: object
+info:
+  contact: {}
+paths:
+  /products/:
+    get:
+      consumes:
+      - application/json
+      description: Get a list of all products
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: Get all products
+      tags:
+      - Products
+    post:
+      consumes:
+      - application/json
+      description: Create a new product with the input payload
+      parameters:
+      - description: Product to create
+        in: body
+        name: product
+        required: true
+        schema:
+          $ref: '#/definitions/model.Product'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            type: string
+      summary: Create a new product
+      tags:
+      - Products
+swagger: "2.0"

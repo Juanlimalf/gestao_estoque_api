@@ -43,3 +43,9 @@ func (r *ProductRepository) FetchAllProducts() []model.Product {
 
 	return products
 }
+
+func (r *ProductRepository) InsertProduct(product model.Product) error {
+	query := "INSERT INTO product (description, price) VALUES (?, ?)"
+	_, err := r.db.Exec(query, product.Description, product.Price)
+	return err
+}
