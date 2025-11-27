@@ -1,0 +1,13 @@
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: db_user
+      POSTGRES_PASSWORD: senha123
+      POSTGRES_DB: db_test
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
